@@ -44,7 +44,7 @@ useEffect(
       const balance = await web3.eth.getBalance(contract.address)
       setBalance(web3.utils.fromWei(balance, "ether"))
     }
-    loadBalance()
+    web3API.contract && loadBalance()
   },[web3API])
 
   useEffect(()=>{
@@ -52,7 +52,7 @@ useEffect(
       const accounts = await web3API.web3.eth.getAccounts()
       setAccount(accounts[0])
     }
-    getAccount()
+    web3API.web3 && getAccount()
   },[web3API.web3])
    
     
